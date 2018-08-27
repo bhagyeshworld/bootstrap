@@ -93,7 +93,7 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.debounce', 'ui.bootstrap
     var parsedModel = $parse(attrs.ngModel);
     var invokeModelSetter = $parse(attrs.ngModel + '($$$p)');
     var $setModelValue = function(scope, newValue) {
-      if (angular.isFunction(parsedModel(originalScope)) &&
+      if (angular.isFunction(parsedModel) &&
         ngModelOptions.getOption('getterSetter')) {
         return invokeModelSetter(scope, {$$$p: newValue});
       }
